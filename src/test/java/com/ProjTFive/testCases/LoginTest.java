@@ -48,6 +48,8 @@ public class LoginTest extends Base{
 	public void validateValidLogin() {	
 		
 
+		//###############FOR FIRST BRACH PUSH######
+		
 		//driver.findElement(By.id("input-email")).sendKeys(prop.getProperty("validemail"));
 		//driver.findElement(By.xpath("//input[@name='email']")).sendKeys("pascalron54@gmail.com");
 		driver.findElement(By.xpath("//input[@name='email']")).sendKeys(prop.getProperty("validemail"));
