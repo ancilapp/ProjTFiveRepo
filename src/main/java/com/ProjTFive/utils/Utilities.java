@@ -3,6 +3,8 @@ package com.ProjTFive.utils;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 
 import org.apache.poi.ss.usermodel.CellType;
 import org.apache.poi.xssf.usermodel.XSSFCell;
@@ -79,5 +81,18 @@ public class Utilities {
 		} 
 		  return destScreenshotPath;
 	}
+	
+	
+	    public static String RandonString (){
+	        // Get the current date and time
+	        LocalDateTime currentDateTime = LocalDateTime.now();
+
+	        // Format the date and time (optional)
+	        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MMddHHmmss");
+	        String formattedDateTime = currentDateTime.format(formatter);
+
+	        return formattedDateTime;
+	    }
+	
 	
 }
