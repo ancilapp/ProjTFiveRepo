@@ -30,6 +30,8 @@ public class SearchTest extends Base{
 		driver.findElement(By.xpath("//input[@name='password']")).sendKeys("Selenium1");
 		driver.findElement(By.xpath("//input[@value='Login']")).click();
 		
+		//just touch basing. next time start with execution.
+		
 	}
 
 	@AfterMethod
