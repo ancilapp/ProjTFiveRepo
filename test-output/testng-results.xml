@@ -2,24 +2,24 @@
 <testng-results ignored="0" total="1" passed="1" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2024-12-19T12:33:21 EST" name="Default suite" finished-at="2024-12-19T12:33:30 EST" duration-ms="8480">
+  <suite started-at="2024-12-26T15:35:02 EST" name="Default suite" finished-at="2024-12-26T15:35:12 EST" duration-ms="9689">
     <groups>
     </groups>
-    <test started-at="2024-12-19T12:33:21 EST" name="Default test" finished-at="2024-12-19T12:33:30 EST" duration-ms="8480">
-      <class name="com.ProjTFive.testCases.LoginTest">
-        <test-method is-config="true" signature="setUp()[pri:0, instance:com.ProjTFive.testCases.LoginTest@1530c739]" started-at="2024-12-19T12:33:21 EST" name="setUp" finished-at="2024-12-19T12:33:28 EST" duration-ms="6744" status="PASS">
+    <test started-at="2024-12-26T15:35:02 EST" name="Default test" finished-at="2024-12-26T15:35:12 EST" duration-ms="9689">
+      <class name="com.ProjTFive.testCases.SearchTest">
+        <test-method is-config="true" signature="setUp()[pri:0, instance:com.ProjTFive.testCases.SearchTest@449a4f23]" started-at="2024-12-26T15:35:02 EST" name="setUp" finished-at="2024-12-26T15:35:10 EST" duration-ms="8458" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUp -->
-        <test-method signature="validateInvalidCreds()[pri:0, instance:com.ProjTFive.testCases.LoginTest@1530c739]" started-at="2024-12-19T12:33:28 EST" name="validateInvalidCreds" finished-at="2024-12-19T12:33:29 EST" duration-ms="1323" status="PASS">
+        <test-method signature="searchHonda()[pri:0, instance:com.ProjTFive.testCases.SearchTest@449a4f23]" started-at="2024-12-26T15:35:10 EST" name="searchHonda" finished-at="2024-12-26T15:35:12 EST" duration-ms="1146" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- validateInvalidCreds -->
-        <test-method is-config="true" signature="tearDown()[pri:0, instance:com.ProjTFive.testCases.LoginTest@1530c739]" started-at="2024-12-19T12:33:29 EST" name="tearDown" finished-at="2024-12-19T12:33:30 EST" duration-ms="338" status="PASS">
+        </test-method> <!-- searchHonda -->
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:com.ProjTFive.testCases.SearchTest@449a4f23]" started-at="2024-12-26T15:35:12 EST" name="tearDown" finished-at="2024-12-26T15:35:12 EST" duration-ms="1" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDown -->
-      </class> <!-- com.ProjTFive.testCases.LoginTest -->
+      </class> <!-- com.ProjTFive.testCases.SearchTest -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>

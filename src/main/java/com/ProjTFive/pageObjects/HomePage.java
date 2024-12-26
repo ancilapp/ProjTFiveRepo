@@ -22,6 +22,12 @@ public class HomePage {
 	@FindBy(xpath="//a[text()='Login']")
 	private WebElement login;	
 	
+	@FindBy(xpath="//input[@name='search']")
+	private WebElement searchBarTxt;
+	
+	@FindBy(xpath="//div[@id='search']/descendant::button")
+	private WebElement searchButton;
+	
 	//Actions
 	public void clickMyAccount() {
 		myAccountDropDown.click();
@@ -29,5 +35,13 @@ public class HomePage {
 	
 	public void clickLogin() {
 		login.click();
+	}
+	
+	public void searchFor(String searchItem) {
+		searchBarTxt.sendKeys(searchItem);
+	}
+	
+	public void clickSearch() {
+		searchButton.click();
 	}
 }

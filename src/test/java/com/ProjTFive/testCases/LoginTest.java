@@ -31,8 +31,6 @@ public class LoginTest extends Base{
 		
 		driver = initialBrowserAndOpenUrl();
 		
-		//driver.findElement(By.xpath("//span[text()='My Account']")).click();
-		//driver.findElement(By.xpath("//a[text()='Login']")).click();
 		HomePage homepg = new HomePage(driver);
 		homepg.clickMyAccount();
 		homepg.clickLogin();
@@ -51,8 +49,6 @@ public class LoginTest extends Base{
 
 		//###############FOR FIRST BRACH PUSH######
 		
-		//driver.findElement(By.id("input-email")).sendKeys(prop.getProperty("validemail"));
-		//driver.findElement(By.xpath("//input[@name='email']")).sendKeys("pascalron54@gmail.com");
 		driver.findElement(By.xpath("//input[@name='email']")).sendKeys(prop.getProperty("validemail"));
 		driver.findElement(By.xpath("//input[@name='password']")).sendKeys("Selenium1");
 		driver.findElement(By.xpath("//input[@value='Login']")).click();
