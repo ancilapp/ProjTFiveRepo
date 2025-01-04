@@ -8,6 +8,7 @@
     <classes>
        <class name="com.ProjTFive.testCases.LoginTest"/>
        <class name="com.ProjTFive.testCases.RegisterTest"/>	
+       <class name="com.ProjTFive.testCases.SearchTest"/>	
     </classes>
   </test> <!-- Test -->
 </suite> <!-- Suite -->
