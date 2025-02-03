@@ -28,6 +28,10 @@ public class HomePage {
 	@FindBy(xpath="//div[@id='search']/descendant::button")
 	private WebElement searchButton;
 	
+	@FindBy(xpath="//a[text()='Register']")
+	private WebElement register;
+	
+	
 	//Actions
 	public void clickMyAccount() {
 		myAccountDropDown.click();
@@ -43,5 +47,9 @@ public class HomePage {
 	
 	public void clickSearch() {
 		searchButton.click();
+	}
+	
+	public void clickRegister() {
+		register.click();
 	}
 }

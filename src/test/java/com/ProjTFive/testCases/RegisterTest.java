@@ -12,6 +12,8 @@ import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
 import com.ProjTFive.base.Base;
+import com.ProjTFive.pageObjects.HomePage;
+import com.ProjTFive.pageObjects.RegistrationPage;
 import com.ProjTFive.utils.Utilities;
 
 public class RegisterTest extends Base {
@@ -23,8 +25,9 @@ public class RegisterTest extends Base {
 		
 		driver = initialBrowserAndOpenUrl();
 		
-		driver.findElement(By.xpath("//span[text()='My Account']")).click();
-		driver.findElement(By.xpath("//a[text()='Register']")).click();
+		HomePage homepg = new HomePage(driver);
+		homepg.clickMyAccount();
+		homepg.clickRegister();
 	}
 	
 	@AfterMethod
@@ -35,7 +38,8 @@ public class RegisterTest extends Base {
 	@Test
 	public void verifyMandatoryFieldsMessages() {
 		
-		driver.findElement(By.xpath("//input[@value='Continue']")).click();
+		RegistrationPage regpg = new RegistrationPage(driver);
+		regpg.clickContinue();
 		
 		String FirstNameMsg = driver.findElement(By.xpath("//input[@name='firstname']//following-sibling::div")).getText();
 		Assert.assertTrue(FirstNameMsg.contains("First Name must be between 1 and 32 characters!"));
@@ -62,15 +66,22 @@ public class RegisterTest extends Base {
 	@Test(dataProvider="supplyTestData")
 	public void verifyPasswordMatchingMessage(String Passone, String Passtwo) {
 		
-		driver.findElement(By.id("input-firstname")).sendKeys("Ron");
-		driver.findElement(By.xpath("//input[@name='lastname']")).sendKeys("Pascal");
-		driver.findElement(By.xpath("//input[@name='email']")).sendKeys("Pascal@gmail.com");
-		driver.findElement(By.xpath("//input[@name='lastname']")).sendKeys("Pascal");
-		driver.findElement(By.xpath("//input[@name='telephone']")).sendKeys("1234567899");
-		driver.findElement(By.xpath("//input[@name='password']")).sendKeys(Passone);
-		driver.findElement(By.xpath("//input[@name='confirm']")).sendKeys(Passtwo);
+		String randomEmail = "pasc"+Utilities.RandonString()+"@gmail.com";
+		RegistrationPage regpg = new RegistrationPage(driver);
+		//driver.findElement(By.id("input-firstname")).sendKeys("Ron");
+		//driver.findElement(By.xpath("//input[@name='lastname']")).sendKeys("Pascal");
+		regpg.enterFirstName("Ron");
+		regpg.enterLastName("Pascal");
+		regpg.enterEmail(randomEmail);
+		regpg.enterPassword(Passone);
+		regpg.enterPasswordConfirmation(Passtwo);
+		regpg.clickContinue();
 		
-		driver.findElement(By.xpath("//input[@value='Continue']")).click();
+		//driver.findElement(By.xpath("//input[@name='email']")).sendKeys("Pascal@gmail.com");
+		//driver.findElement(By.xpath("//input[@name='telephone']")).sendKeys("1234567899");
+		//driver.findElement(By.xpath("//input[@name='password']")).sendKeys(Passone);
+		//driver.findElement(By.xpath("//input[@name='confirm']")).sendKeys(Passtwo);
+		//driver.findElement(By.xpath("//input[@value='Continue']")).click();
 		
 		String actualMessage = driver.findElement(By.xpath("//input[@name='confirm']/following-sibling::div")).getText();
 		
