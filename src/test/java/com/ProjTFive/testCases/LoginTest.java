@@ -7,6 +7,7 @@ import org.testng.annotations.Test;
 
 import com.ProjTFive.base.Base;
 import com.ProjTFive.pageObjects.HomePage;
+import com.ProjTFive.pageObjects.LoginPage;
 import com.ProjTFive.utils.Utilities;
 
 import java.time.Duration;
@@ -25,7 +26,6 @@ public class LoginTest extends Base{
 	public WebDriver driver;
 
 	
-	
 	@BeforeMethod
 	public void setUp() {
 		
@@ -33,13 +33,12 @@ public class LoginTest extends Base{
 		
 		HomePage homepg = new HomePage(driver);
 		homepg.clickMyAccount();
-		homepg.clickLogin();
-		
+		homepg.clickLogin();	
 	}
 
 	@AfterMethod
 	public void tearDown() {
-		driver.quit();
+		//driver.quit();
 	}
 	
 	
@@ -48,10 +47,10 @@ public class LoginTest extends Base{
 		
 
 		//###############FOR FIRST BRACH PUSH######
-		
-		driver.findElement(By.xpath("//input[@name='email']")).sendKeys(prop.getProperty("validemail"));
-		driver.findElement(By.xpath("//input[@name='password']")).sendKeys("Selenium1");
-		driver.findElement(By.xpath("//input[@value='Login']")).click();
+		LoginPage loginpg = new LoginPage(driver);
+		loginpg.enterEmailAddress(prop.getProperty("validemail"));
+		loginpg.enterPassword(prop.getProperty("password"));
+		loginpg.clickLogin();
 		
 		//Assert.assertTrue(driver.findElement(By.linkText("Edit your account information")).isDisplayed(),"Step Failed");
 		Assert.assertTrue(driver.findElement(By.linkText("Edit your account information")).isDisplayed(),"Step Failed");
@@ -60,12 +59,13 @@ public class LoginTest extends Base{
 	
 	@Test
 	public void validateInvalidCreds() {
-		
+		LoginPage loginpg = new LoginPage(driver);
 		//driver.findElement(By.id("input-email")).sendKeys("pascalron54@gmail.com");
 		String randomEmail = "pasc"+Utilities.RandonString()+"@gmail.com";
-		driver.findElement(By.xpath("//input[@name='email']")).sendKeys(randomEmail);
-		driver.findElement(By.xpath("//input[@name='password']")).sendKeys("Selenium1");
-		driver.findElement(By.xpath("//input[@value='Login']")).click();
+		
+		loginpg.enterEmailAddress(randomEmail);
+		loginpg.enterPassword(prop.getProperty("password"));
+		loginpg.clickLogin();
 		
 		String actualMessage = driver.findElement(By.xpath("//div[contains(@class,'alert-danger')]")).getText(); 
 		String expectedMessage = "Warning: No match for E-Mail Address and/or Password.";
